@@ -11,6 +11,6 @@ import java.util.List;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     @Override
-    @Query("select p from Person p left join fetch p.notes")
+    @Query("select distinct p from Person p left join fetch p.notes")
     List<Person> findAll();
 }
