@@ -1,5 +1,6 @@
 package com.example.springdemojpa.controller;
 
+import com.example.springdemojpa.dto.NoteBodyDto;
 import com.example.springdemojpa.dto.NoteDto;
 import com.example.springdemojpa.entity.Note;
 import com.example.springdemojpa.service.NoteService;
@@ -27,6 +28,16 @@ public class NoteController {
     @GetMapping("/pagination")
     public Page<Note> findAllNoteDto(Pageable pageable) {
         return noteService.findAll(pageable);
+    }
+
+    @GetMapping("/genericNoteDto")
+    public List<NoteDto> findAllGenericNoteDto() {
+        return noteService.findAllBy(NoteDto.class);
+    }
+
+    @GetMapping("/genericNoteBodyDto")
+    public List<NoteBodyDto> findAllGenericNoteBodyDto() {
+        return noteService.findAllBy(NoteBodyDto.class);
     }
 
 }

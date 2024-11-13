@@ -1,4 +1,4 @@
 package com.example.springdemojpa.dto;
 
-public record NodeBodyDto() {
+public record NoteBodyDto(String body) {
 }

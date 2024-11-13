@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
@@ -15,6 +16,11 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     List<NoteDto> findAllNoteDto();
 
     Page<Note> findAll(Pageable pageable);
+
+    <T> List<T> findAllBy(Class<T> clazz);
+
+    Stream<Note> findAllByBodyStartsWith(String start);
+
 }
 
 
